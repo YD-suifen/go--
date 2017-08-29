@@ -9,6 +9,7 @@ func baiduDate() string {
 	if err != nil{              //这里判断get获取是否成功
 		fmt.Println(err)
 	}
+	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body) //这里使用ReadAll读取获取到的html内容，这里ReadAll返回的是一个数组
 	if err != nil{
 		fmt.Println(err)
